@@ -1,0 +1,61 @@
+spring:
+    application:
+        name: zuoben-auth
+    jackson:
+        date-format: yyyy-MM-dd HH:mm:ss
+        time-zone: GMT+8
+        default-property-inclusion: non_null
+    redis:
+        database: 0
+        host: localhost
+        port: 6379
+        pool:
+        max-active: 20
+        password: zuoben
+server:
+    port: 8763 #启动端口
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+
+feign:
+    httpclient:
+        enabled: false
+    okhttp:
+        enabled: true
+
+ribbon:
+    eureka:
+        enabled: true
+    ReadTimeout: 60000 # 设置读取超时时间
+    ConnectTimeout: 60000 # 设置连接超时时间
+    MaxAutoRetries: 0 # 对当前实例的重试次数
+    MaxAutoRetriesNextServer: 0 # 切换实例的重试次数
+    OkToRetryOnAllOperations: false # 对所有操作请求都进行重试
+
+hystrix:
+    threadpool:
+        default:
+            coreSize: 1000 #并发执行的最大线程数，默认10
+            maxQueueSize: 1000 #BlockingQueue的最大队列数
+            queueSizeRejectionThreshold: 500 #即使maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 120000 # 设置熔断超时时间
+                    strategy: SEMAPHORE
+
+jwt:
+    token-header: Authorization
+    expire: 144000 # 单位秒 144000秒=40分钟
+    rsa-secret: xx1WET12^%3^(WE45
+
+auth:
+    user:
+        token-header: Authorization
+        userId-header: userId
+        userName-header: userName
