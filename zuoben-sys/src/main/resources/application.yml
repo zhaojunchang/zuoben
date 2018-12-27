@@ -1,0 +1,48 @@
+# 服务端口和服务名称
+spring:
+    application:
+        name: zuoben-sys
+    profiles:
+        active: dev
+server:
+    port: 8764
+# 服务注册
+eureka:
+    instance:
+        hostname: localhost
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+    instance:
+        prefer-ip-address: true
+# 必须配置
+feign:
+    httpclient:
+        enabled: false
+    okhttp:
+        enabled: true
+# mybatis
+mybatis:
+    type-aliases-package: com.zuoben.sys.model
+    mapper-locations: classpath:mapper/**/*.xml
+# 分页配置
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    pageSizeZero: true
+    params: count=countSql
+
+auth:
+    user:
+        token-header: Authorization
+        userId-header: userId
+        userName-header: userName
+
+# 用户密码加密需要的盐
+user:
+    salt: '%^&U*hfnuds879h8sh^&*(sdmkfbmfisdkao146'
+
+# 自定义文件上传路径
+web:
+  uploadPath: E:/Develop/Files/Photos/

@@ -1,0 +1,61 @@
+server:
+    port: 8762
+spring:
+    jackson:
+        date-format: yyyy-MM-dd HH:mm:ss
+        time-zone: GMT+8
+        default-property-inclusion: non_null
+
+zuul:
+    ignored-services: "*"
+    sensitive-headers:
+    prefix: /api #为zuul设置一个公共的前缀
+    routes:
+        sys:
+            path: /sys/**
+            serviceId: zuoben-sys
+        auth:
+            path: /auth/**
+            serviceId: zuoben-auth
+        mq:
+            path: /mq/**
+            serviceId: zuoben-mq
+
+gate:
+    ignore:
+        startWith: /auth/jwt,/sys/file/showPhotos
+        contains: swagger,api-docs,login
+
+ribbon:
+    eureka:
+        enabled: true
+    ReadTimeout: 30000 # 设置读取超时时间
+    ConnectTimeout: 30000 # 设置连接超时时间
+    MaxAutoRetries: 0 # 对当前实例的重试次数
+    MaxAutoRetriesNextServer: 0 # 切换实例的重试次数
+    OkToRetryOnAllOperations: false # 对所有操作请求都进行重试
+    httpclient:
+        enabled: false
+    okhttp:
+        enabled: true
+
+hystrix:
+    threadpool:
+        default:
+            coreSize: 1000 #并发执行的最大线程数，默认10
+            maxQueueSize: 1000 #BlockingQueue的最大队列数
+            queueSizeRejectionThreshold: 500 #即使maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 120000 # 设置熔断超时时间
+                    strategy: SEMAPHORE
+
+#文件上传大小
+spring:
+    servlet:
+        multipart:
+            max-file-size: 100Mb
+            max-request-size: 100Mb

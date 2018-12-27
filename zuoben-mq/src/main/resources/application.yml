@@ -1,0 +1,40 @@
+# 服务端口和服务名称
+spring:
+    application:
+        name: zuoben-mq
+server:
+    port: 8787 #启动端口
+
+# 服务注册
+eureka:
+    instance:
+        hostname: localhost
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+    instance:
+        prefer-ip-address: true
+
+# 邮件服务配置
+spring:
+    mail:
+        host: smtp.qq.com
+        username: 1214237256@qq.com
+        password:
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+                        required: true
+mail:
+    fromMail:
+        addr: 1214237256@qq.com
+
+# 必须配置
+feign:
+    httpclient:
+        enabled: false
+    okhttp:
+        enabled: true
