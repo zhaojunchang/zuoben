@@ -92,7 +92,6 @@ public class ISysMenuServiceImpl implements ISysMenuService {
             SysMenu sm = new SysMenu();
             BeanUtils.copyProperties(sysMenu, sm);
             sm.setState(sysMenu.getSituation());
-            sm.setcId(BaseContextHandler.getCId());
             this.sysMenuMapper.insertSelective(sm);
         } catch (Exception var3) {
             return JsonResult.fail("新增失败");
@@ -188,7 +187,6 @@ public class ISysMenuServiceImpl implements ISysMenuService {
         if(list != null) {
             sysMenuExample.createCriteria().andIdIn(list);
         }
-        sysMenuExample.createCriteria().andCIdEqualTo(BaseContextHandler.getCId());
         sysMenuExample.setOrderByClause("sort desc");
         List<SysMenu> menus = this.sysMenuMapper.selectByExample(sysMenuExample);
         List<MenuTree> trees = new LinkedList();

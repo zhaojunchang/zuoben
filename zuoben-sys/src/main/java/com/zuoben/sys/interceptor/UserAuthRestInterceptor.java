@@ -49,7 +49,6 @@ public class UserAuthRestInterceptor extends HandlerInterceptorAdapter {
         BaseContextHandler.setUsername(userInfo.getUsername());
         BaseContextHandler.setUserID(userInfo.getId());
         BaseContextHandler.setUserPhone(userInfo.getPhonenum());
-        BaseContextHandler.setCId(userInfo.getCId());
         return super.preHandle(request, response, handler);
     }
 

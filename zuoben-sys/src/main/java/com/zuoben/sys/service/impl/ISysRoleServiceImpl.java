@@ -46,7 +46,6 @@ public class ISysRoleServiceImpl implements ISysRoleService {
                 sc.andNameLike("%" + name + "%");
             }
 
-            sc.andCIdEqualTo(BaseContextHandler.getCId());
             sc.andStateNotEqualTo(ZuoBenEnum.State.DELETE.getVal());
             if (page != -1 && limit != -1) {
                 PageHelper.startPage(page, limit);
@@ -87,7 +86,6 @@ public class ISysRoleServiceImpl implements ISysRoleService {
             SysRole sysRole = new SysRole();
             sysRole.setState(ZuoBenEnum.State.SELLING.getVal());
             BeanUtils.copyProperties(sysRoleDTO, sysRole);
-            sysRole.setcId(BaseContextHandler.getCId());
             this.sysRoleMapper.insertSelective(sysRole);
             sysRoleDTO.setId(sysRole.getId());
             JsonResult jsonResult = this.deleteAndInsertRoleMenu(sysRoleDTO, false);
