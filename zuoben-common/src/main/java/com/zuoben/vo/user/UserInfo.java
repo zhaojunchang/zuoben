@@ -17,7 +17,6 @@ public class UserInfo {
     private String username;
     private String password;
     private String phonenum;
-    private String cId;
     private String apiKey;
     private String apiSecret;
     private Date updTime;

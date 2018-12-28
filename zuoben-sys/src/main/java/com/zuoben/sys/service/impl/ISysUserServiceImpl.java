@@ -75,7 +75,6 @@ public class ISysUserServiceImpl implements ISysUserService {
             userInfo.setPhonenum(sysUser.get(0).getPhone());
             userInfo.setPassword(password0);
             userInfo.setUsername(sysUser.get(0).getUserName());
-            userInfo.setCId(sysUser.get(0).getcId().toString());
             return JsonResult.success(userInfo);
         });
     }
@@ -89,7 +88,6 @@ public class ISysUserServiceImpl implements ISysUserService {
                 sc.andUserNameLike("%" + userName + "%");
             }
 
-            sc.andCIdEqualTo(BaseContextHandler.getCId());
             sc.andStateNotEqualTo(ZuoBenEnum.State.DELETE.getVal());
             if (!page.equals(ZuoBenEnum.Page.PAGE.getVal())
                     && !limit.equals(ZuoBenEnum.Page.LIMIT.getVal()))
@@ -164,7 +162,6 @@ public class ISysUserServiceImpl implements ISysUserService {
             BeanUtils.copyProperties(sysUserDTO, sysUser);
             String password0 = Md5Util.md5(sysUser.getPassword(), salt);
             sysUser.setPassword(password0);
-            sysUser.setcId(BaseContextHandler.getCId());
             sysUser.setCreateId(BaseContextHandler.getUserID());
             sysUser.setCreateTime(new Date());
             this.sysUserMapper.insertSelective(sysUser);

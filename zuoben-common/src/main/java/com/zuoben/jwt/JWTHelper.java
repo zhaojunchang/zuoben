@@ -48,7 +48,6 @@ public class JWTHelper {
                 .setSubject(jwtInfo.getUserName())
                 .claim(CommonConstants.JWT_KEY_USER_ID, jwtInfo.getId())
                 .claim(CommonConstants.JWT_KEY_PHONE, jwtInfo.getPhone())
-                .claim(CommonConstants.JWT_KEY_CID, jwtInfo.getCId())
                 .setExpiration(DateTime.now().plusSeconds(expire).toDate())
                 .signWith(SignatureAlgorithm.RS256, rsaKeyHelper.getPrivateKey(priKey))
                 .compact();
@@ -90,7 +89,7 @@ public class JWTHelper {
     public static IJWTInfo getInfoFromToken(String token, String pubKeyPath) throws Exception {
         Jws<Claims> claimsJws = parserToken(token, pubKeyPath);
         Claims body = claimsJws.getBody();
-        return new JWTInfo(body.getSubject(), StringUtils.getObjectValue(body.get(CommonConstants.JWT_KEY_USER_ID)), StringUtils.getObjectValue(body.get(CommonConstants.JWT_KEY_PHONE)), StringUtils.getObjectValue(body.get(CommonConstants.JWT_KEY_CID)));
+        return new JWTInfo(body.getSubject(), StringUtils.getObjectValue(body.get(CommonConstants.JWT_KEY_USER_ID)), StringUtils.getObjectValue(body.get(CommonConstants.JWT_KEY_PHONE)));
     }
 
     /**
@@ -104,6 +103,6 @@ public class JWTHelper {
     public static IJWTInfo getInfoFromToken(String token, byte[] pubKey) throws Exception {
         Jws<Claims> claimsJws = parserToken(token, pubKey);
         Claims body = claimsJws.getBody();
-        return new JWTInfo(body.getSubject(), StringUtils.getObjectValue(body.get(CommonConstants.JWT_KEY_USER_ID)), StringUtils.getObjectValue(body.get(CommonConstants.JWT_KEY_PHONE)), StringUtils.getObjectValue(body.get(CommonConstants.JWT_KEY_CID)));
+        return new JWTInfo(body.getSubject(), StringUtils.getObjectValue(body.get(CommonConstants.JWT_KEY_USER_ID)), StringUtils.getObjectValue(body.get(CommonConstants.JWT_KEY_PHONE)));
     }
 }
