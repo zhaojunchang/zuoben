@@ -4,15 +4,15 @@ spring:
         name: zuoben-sys
     redis:
         database: 0
-        host: localhost
+        host: 192.168.10.22
         port: 6379
         pool:
         max-active: 20
-        password: zuoben
+        password: QpxTB5viS4PjGxfx
     datasource:
-        url: jdbc:mysql://localhost:8635/zuoben?useUnicode=true&characterEncoding=UTF8&allowMultiQueries=true&useSSL=false
+        url: jdbc:mysql://192.168.10.203:8635/zuoben?useUnicode=true&characterEncoding=UTF8&allowMultiQueries=true&useSSL=false
         username: root
-        password: root
+        password: Zz3695275@
         driver-class-name: com.mysql.jdbc.Driver
         type: com.alibaba.druid.pool.DruidDataSource
         connectionProperties: druid.stat.mergeSql=true
