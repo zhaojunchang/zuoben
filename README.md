@@ -15,6 +15,7 @@ SpringBoot + SpringCloud 构建分布式、负载均衡系统，前后分离企�
     7. Bootstrap
     8. mybatis、mybatis-generator
     9. Alibaba Druid
+    10，redis
     
 #### 部署
 导入项目后，通过以下步骤来启动项目：
