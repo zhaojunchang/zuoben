@@ -1,18 +1,20 @@
 # zuoben 
 
 #### 项目介绍
-spring boot 前后分离企业级快速开发脚手架
+SpringBoot + SpringCloud 构建分布式、负载均衡系统，前后分离企业级快速开发脚手架
+
+这是我平时测试用的demo，整天想着开源一直没有时间。可以在此基础上二次开发，也可以进行学习交流。
 
 #### 技术栈
     1. Spring Boot
-    2. MySQL
-    3. Freemark
-    4.SiteMesh
-    5.Shiro
-    6.Bootstrap
-    7.mybatis、mybatisPlus
-    8.redis
-    9.Activiti v5.22
+    2. Spring Cloud
+    3. MySQL
+    4. JWT
+    5. RPC
+    6. Email
+    7. Bootstrap
+    8. mybatis、mybatis-generator
+    9. Alibaba Druid
     
 #### 部署
 导入项目后，通过以下步骤来启动项目：
