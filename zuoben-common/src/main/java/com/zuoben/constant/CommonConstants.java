@@ -38,10 +38,6 @@ public class CommonConstants {
      */
     public static final String CONTEXT_KEY_USER_PHONE = "currentUserPhone";
     /**
-     * 用户公司id
-     */
-    public static final String CONTEXT_KEY_USER_CID = "currentUserCId";
-    /**
      * 用户token
      */
     public static final String CONTEXT_KEY_USER_TOKEN = "currentUserToken";
@@ -57,7 +53,6 @@ public class CommonConstants {
     public static final String JWT_KEY_USER_ID = "userId";
     public static final String JWT_KEY_PHONE = "phone";
     public static final String JWT_KEY_NAME = "name";
-    public static final String JWT_KEY_CID = "cId";
 
     /**
      * openapi加密串校验失败

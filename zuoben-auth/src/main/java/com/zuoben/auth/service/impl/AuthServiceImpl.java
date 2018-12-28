@@ -31,7 +31,7 @@ public class AuthServiceImpl implements AuthService {
         }
         if (!StringUtils.isEmpty(info.getId())) {
             try {
-                token = jwtTokenUtil.generateToken(new JWTInfo(info.getUsername(), info.getId(), info.getPhonenum(), info.getCId()));
+                token = jwtTokenUtil.generateToken(new JWTInfo(info.getUsername(), info.getId(), info.getPhonenum()));
             } catch (Exception e) {
                 return JsonResult.fail("获取用户信息异常");
             }

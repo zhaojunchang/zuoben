@@ -22,9 +22,4 @@ public interface IJWTInfo {
      * 获取手机号
      */
     String getPhone();
-
-    /**
-     * 获取手机号
-     */
-    String getCId();
 }

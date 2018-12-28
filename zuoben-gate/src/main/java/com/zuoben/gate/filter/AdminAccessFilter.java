@@ -97,7 +97,6 @@ public class AdminAccessFilter extends ZuulFilter {
             BaseContextHandler.setUsername(user.getUserName());
             BaseContextHandler.setUserID(user.getId());
             BaseContextHandler.setUserPhone(user.getPhone());
-            BaseContextHandler.setCId(user.getCId());
         } catch (Exception e) {
             setFailedRequest(ctx, JSON.toJSONString(new JsonResult<String>(CommonConstants.TOKEN_ERROR_CODE, e.getMessage())));
         }
