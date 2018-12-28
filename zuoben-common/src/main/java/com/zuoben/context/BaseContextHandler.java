@@ -35,15 +35,6 @@ public class BaseContextHandler {
         }
     }
 
-    public static Integer getCId() {
-        Object value = get(CommonConstants.CONTEXT_KEY_USER_CID);
-        try {
-            return Integer.parseInt(returnObjectValue(value));
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
     public static String getUserPhone() {
         Object value = get(CommonConstants.CONTEXT_KEY_USER_PHONE);
         return returnObjectValue(value);
@@ -66,10 +57,6 @@ public class BaseContextHandler {
 
     public static void setUserID(String userID) {
         set(CommonConstants.CONTEXT_KEY_USER_ID, userID);
-    }
-
-    public static void setCId(String cId) {
-        set(CommonConstants.CONTEXT_KEY_USER_CID, cId);
     }
 
     public static void setUsername(String username) {

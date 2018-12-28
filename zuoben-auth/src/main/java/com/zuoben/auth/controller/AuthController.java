@@ -44,7 +44,6 @@ public class AuthController {
         IJWTInfo ijwtInfo = jwtTokenUtil.getInfoFromToken(token);
         userInfo.setId(ijwtInfo.getId());
         userInfo.setUsername(ijwtInfo.getUserName());
-        userInfo.setCId(ijwtInfo.getCId());
         userInfo.setPhonenum(ijwtInfo.getPhone());
         return userInfo;
     }
